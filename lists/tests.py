@@ -4,6 +4,7 @@ from django.http import HttpRequest
 
 from lists.views import home_page
 
+
 class HomePageTest(TestCase):
     def test_root_url_resolves_to_home_page_view(self):
         found = resolve('/')
@@ -14,5 +15,5 @@ class HomePageTest(TestCase):
         response = home_page(request)
         html = response.content.decode('utf8')
         self.assertTrue(html.startswith('<html>'))
-        self.assertIn('<title>To-Do Lists</title>', html)
+        self.assertIn('<title>To-Do lists</title>', html)
         self.assertTrue(html.endswith('</html>'))
